@@ -49,5 +49,14 @@ angular.module('starter.controllers', ['starter.services'])
       });
   })
 
+  .controller('MenuDateRelationsCtrl', function ($scope, $http) {
+    //$scope.menus = Menu.query();
+    $http.get(host + "/menu-date-relations")
+      .then(function (response) {
+        $scope.menuDateRelations = response.data.data;
+        console.log(response.data.data);
+      });
+  })
+
   .controller('PlaylistCtrl', function ($scope, $stateParams) {
   });
