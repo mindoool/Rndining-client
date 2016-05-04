@@ -67,12 +67,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           }
         }
       })
-      .state('app.menudaterelations', {
-        url: '/menu-date-relations',
+      .state('app.mealdatemenus', {
+        url: '/meal-date-menus',
         views: {
           'menuContent': {
-            templateUrl: 'templates/menu-date-relations.html',
-            controller: 'MenuDateRelationsCtrl'
+            templateUrl: 'templates/meal-date-menus.html',
+            controller: 'MealDateMenusCtrl'
           }
         }
       });

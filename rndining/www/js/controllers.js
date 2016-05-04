@@ -43,19 +43,35 @@ angular.module('starter.controllers', ['starter.services'])
 
   .controller('MenusCtrl', function ($scope, $http) {
     //$scope.menus = Menu.query();
+
     $http.get(host + "/menus")
       .then(function (response) {
         $scope.menus = response.data.data;
       });
   })
 
-  .controller('MenuDateRelationsCtrl', function ($scope, $http) {
-    //$scope.menus = Menu.query();
-    $http.get(host + "/menu-date-relations")
-      .then(function (response) {
-        $scope.menuDateRelations = response.data.data;
-        console.log(response.data.data);
-      });
+  .controller('MealDateMenusCtrl', function ($scope, $http, $filter) {
+    $scope.currentTime = new Date().getTime();
+
+    $scope.changeDate = function(forward) {
+      if (forward) {
+        $scope.currentTime += 86400000;
+      } else {
+        $scope.currentTime -= 86400000;
+      }
+      $scope.getMealDateMenuLists();
+    };
+    $scope.getMealDateMenuLists = function () {
+      var params = {
+        "date": $filter('date')(new Date($scope.currentTime), 'yyyy-MM-dd')
+      };
+      $http.get(host + '/meal-date-menus', {params: params, cache: true})
+        .then(function (response) {
+          console.log(response);
+          $scope.mealDateMenus = response.data.data;
+        });
+    };
+    $scope.getMealDateMenuLists();
   })
 
   .controller('PlaylistCtrl', function ($scope, $stateParams) {
