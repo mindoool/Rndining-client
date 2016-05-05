@@ -7,16 +7,10 @@
     </div>
     <ion-list>
       <div class="item item-divider">아침</div>
-      <ion-item ng-show="mealDateMenu.meal.time=='morning'" ng-repeat="mealDateMenu in mealDateMenus"
-                href="#/app/playlists/{{playlist.id}}">
-        <span ng-repeat="menu in mealDateMenu.menus">
-          {{menu.name}} ({{menu.category}}) <br>
-        </span>
-      </ion-item>
-      <div class="item item-divider">점심</div>
       <div class="row">
         <div class="col col-50">
-          <div ng-show="mealDateMenu.meal.time=='lunch'&&mealDateMenu.meal.category=='korean'" ng-repeat="mealDateMenu in mealDateMenus"
+          <div> [라면] </div>
+          <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='noodle'" ng-repeat="mealDateMenu in mealDateMenus"
                     href="#/app/playlists/{{playlist.id}}">
             <span ng-repeat="menu in mealDateMenu.menus">
               {{menu.name}} ({{menu.category}}) <br>
@@ -24,15 +18,59 @@
           </div>
         </div>
         <div class="col col-50">
-          <div ng-show="mealDateMenu.meal.time=='lunch'&&mealDateMenu.meal.category=='western'" ng-repeat="mealDateMenu in mealDateMenus"
-                    href="#/app/playlists/{{playlist.id}}">
+          <div> [샐러드] </div>
+          <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='salad'" ng-repeat="mealDateMenu in mealDateMenus"
+               href="#/app/playlists/{{playlist.id}}">
             <span ng-repeat="menu in mealDateMenu.menus">
               {{menu.name}} ({{menu.category}}) <br>
             </span>
           </div>
         </div>
       </div>
-      <div class="item item-divider">저녁</div>
+      <div class="row">
+        <div class="col col-50">
+          <div> [Take-out] </div>
+          <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='takeout'" ng-repeat="mealDateMenu in mealDateMenus"
+               href="#/app/playlists/{{playlist.id}}">
+            <span ng-repeat="menu in mealDateMenu.menus">
+              {{menu.name}} ({{menu.category}}) <br>
+            </span>
+          </div>
+        </div>
+        <div class="col col-50">
+          <div> [한식] </div>
+          <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='korean'" ng-repeat="mealDateMenu in mealDateMenus"
+               href="#/app/playlists/{{playlist.id}}">
+            <span ng-repeat="menu in mealDateMenu.menus">
+              {{menu.name}} ({{menu.category}}) <br>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="item item-divider">점심</div>
+      <div class="row">
+        <div class="col col-50">
+          <div> [한식 (2층)] </div>
+          <div ng-show="mealDateMenu.meal.time=='lunch'&&mealDateMenu.meal.category=='korean'"
+               ng-repeat="mealDateMenu in mealDateMenus"
+               href="#/app/playlists/{{playlist.id}}">
+            <span ng-repeat="menu in mealDateMenu.menus">
+              {{menu.name}} ({{menu.category}}) <br>
+            </span>
+          </div>
+        </div>
+        <div class="col col-50">
+          <div> [양식 (1층)] </div>
+          <div ng-show="mealDateMenu.meal.time=='lunch'&&mealDateMenu.meal.category=='western'"
+               ng-repeat="mealDateMenu in mealDateMenus"
+               href="#/app/playlists/{{playlist.id}}">
+            <span ng-repeat="menu in mealDateMenu.menus">
+              {{menu.name}} ({{menu.category}}) <br>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="item item-divider">저녁(2층)</div>
       <ion-item ng-show="mealDateMenu.meal.time=='dinner'" ng-repeat="mealDateMenu in mealDateMenus"
                 href="#/app/playlists/{{playlist.id}}">
         <span ng-repeat="menu in mealDateMenu.menus">

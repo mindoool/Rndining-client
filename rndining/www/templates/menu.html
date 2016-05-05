@@ -18,20 +18,20 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
+        <ion-item menu-close ng-controller="LoginController" ng-click="login()">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
+        <ion-item menu-close href="#/app/meal-date-menus">
+          주간식단
         </ion-item>
         <ion-item menu-close href="#/app/menus">
           Menus
         </ion-item>
-        <ion-item menu-close href="#/app/meal-date-menus">
-          주간식단
+      </ion-list>
+      <div class="item item-divider">Admin</div>
+      <ion-list>
+        <ion-item menu-close href="#/app/menus">
+          식단등록
         </ion-item>
       </ion-list>
     </ion-content>

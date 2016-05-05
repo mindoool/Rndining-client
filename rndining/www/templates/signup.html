@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">회원가입</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doSignup()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">E-mail</span>
+          <input type="text" ng-model="signupData.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="signupData.password">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password Check</span>
+          <input type="password" ng-model="signupData.passwordCheck">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">닉네임</span>
+          <input type="text" ng-model="signupData.nickname">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">가입</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
