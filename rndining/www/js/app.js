@@ -46,7 +46,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     });
 });
 
-app.run(function ($ionicPlatform) {
+app.run(function ($ionicPlatform, $http, storage, $rootScope) {
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -60,4 +60,17 @@ app.run(function ($ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
+  $http.defaults.headers.common.Authorization = storage.get('token');
+  $rootScope.token = storage.get('token');
+  $rootScope.user = storage.get('userData');
+  $rootScope.logout = function () {
+    console.log('logout');
+    console.log($rootScope);
+    $rootScope.token = null;
+    $rootScope.user = null;
+    $http.defaults.headers.common.Authorization = null;
+    storage.set('userData', null);
+    storage.set('token', null);
+    $state.go('login');
+  }
 });
