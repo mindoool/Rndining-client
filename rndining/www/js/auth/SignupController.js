@@ -3,7 +3,7 @@ app.controller('SignupController', ['$scope', '$http', '$rootScope', '$filter', 
   $scope.signupData = {};
 
   // Create the signup modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/signup.html', {
+  $ionicModal.fromTemplateUrl('templates/auth/signup.html', {
     scope: $scope
   }).then(function (modal) {
     $scope.modal = modal;

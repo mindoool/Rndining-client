@@ -36,7 +36,7 @@ app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$
   };
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/meal-date-menu.html', {
+  $ionicModal.fromTemplateUrl('templates/weeklymenus/meal-date-menu.html', {
     scope: $scope
   }).then(function (modal) {
     $scope.modal = modal;
@@ -49,7 +49,6 @@ app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$
 
   // Open the login modal
   $scope.openMenu = function (mealDateMenu) {
-    console.log('modal open')
     $scope.modal.show();
     $scope.mealDateMenu = mealDateMenu
   };

@@ -8,7 +8,7 @@ var app = angular.module('RnDining', ['ionic', 'ui.router']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/app/menus");
+  $urlRouterProvider.otherwise("/app/meal-date-menus");
 
   $stateProvider
     .state('app', {
@@ -21,7 +21,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/menus',
       views: {
         'menuContent': {
-          templateUrl: 'templates/menus.html',
+          templateUrl: 'templates/weeklymenus/menus.html',
           controller: 'MenusCtrl'
         }
       }
@@ -39,7 +39,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/meal-date-menus',
       views: {
         'menuContent': {
-          templateUrl: 'templates/meal-date-menus.html',
+          templateUrl: 'templates/weeklymenus/meal-date-menus.html',
           controller: 'MealController'
         }
       }
@@ -48,7 +48,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/upload-menus',
       views: {
         'menuContent': {
-          templateUrl: 'templates/upload-menus.html',
+          templateUrl: 'templates/admin/upload-menus.html',
           controller: 'MealController'
         }
       }

@@ -1,0 +1,70 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">
+      <div class="row">
+        <span class="center">{{mealDateMenu.date | date:'yyyy-MM-dd'}}</span>
+        <span class="center" ng-if="mealDateMenu.meal.time=='morning'">아침</span>
+        <span class="center" ng-if="mealDateMenu.meal.time=='lunch'">점심</span>
+        <span class="center" ng-if="mealDateMenu.meal.time=='dinner'">저녁</span>
+      </div>
+    </h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeMenu()">Close</button>
+    </div>
+  </ion-header-bar>
+  <div class="tabs" ng-if="mealDateMenu.meal.time=='morning'">
+    <a class="tab-item">
+      한식
+    </a>
+    <a class="tab-item">
+      샐러드
+    </a>
+    <a class="tab-item">
+      라면
+    </a>
+    <a class="tab-item">
+      Take-Out
+    </a>
+  </div>
+  <div class="tabs" ng-if="mealDateMenu.meal.time=='lunch'">
+    <a class="tab-item">
+      한식
+    </a>
+    <a class="tab-item">
+      양식
+    </a>
+  </div>
+  <!--<ion-tabs>-->
+    <!--<ion-tab title="Home">-->
+      <!--&lt;!&ndash; Tab 1 content &ndash;&gt;-->
+    <!--</ion-tab>-->
+
+    <!--<ion-tab title="About">-->
+      <!--&lt;!&ndash; Tab 2 content &ndash;&gt;-->
+    <!--</ion-tab>-->
+
+    <!--<ion-tab title="Settings">-->
+      <!--&lt;!&ndash; Tab 3 content &ndash;&gt;-->
+    <!--</ion-tab>-->
+  <!--</ion-tabs>-->
+  <ion-content>
+    <ion-list>
+      <ion-item class="menu-item" ng-repeat="menu in mealDateMenu.menus">
+        <div class="row">
+          <div class="col col-20">
+            <span ng-if="menu.category=='rice'">밥</span>
+            <span ng-if="menu.category=='soup'">국</span>
+            <span ng-if="menu.category=='maindish'">메인반찬</span>
+            <span ng-if="menu.category=='sidedish'">밑반찬</span>
+            <span ng-if="menu.category=='bread'">빵</span>
+            <span ng-if="menu.category=='drink'">음료</span>
+            <span ng-if="menu.category=='fruit'">과일</span>
+            <span ng-if="menu.category=='noodle'">면</span>
+            <span ng-if="menu.category=='salad'">샐러드</span>
+          </div>
+          <div class="col col-20">{{menu.name}}</div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

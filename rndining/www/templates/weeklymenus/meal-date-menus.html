@@ -1,9 +1,9 @@
 <ion-view view-title="주간식단">
   <ion-content>
     <div class="row">
-      <div class="col col-33" ng-click="changeDate(false)"> &lt; </div>
-      <div class="col col-33">{{currentTime | date:'yyyy-MM-dd'}}</div>
-      <div class="col col-33" ng-click="changeDate(true)"> &gt; </div>
+      <li class="icon ion-chevron-left col col-33 center" ng-click="changeDate(false)"></li>
+      <div class="col col-33 center">{{currentTime | date:'yyyy-MM-dd'}}</div>
+      <li class="icon ion-chevron-right col col-33 center" ng-click="changeDate(true)"></li>
     </div>
     <ion-list>
       <div class="item item-divider">아침</div>
@@ -12,8 +12,8 @@
           <div> [라면] </div>
           <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='noodle'" ng-repeat="mealDateMenu in mealDateMenus"
                     href="#/app/playlists/{{playlist.id}}">
-            <span ng-repeat="menu in mealDateMenu.menus" href="#/app/meal-date-menu" ng-click="openMenu(mealDateMenu)">
-              {{menu.name}} ({{menu.category}}) <br>
+            <span ng-repeat="menu in mealDateMenu.menus" ng-click="openMenu(mealDateMenu)">
+              {{menu.name}}<br>
             </span>
           </div>
         </div>
@@ -21,7 +21,7 @@
           <div> [샐러드] </div>
           <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='salad'" ng-repeat="mealDateMenu in mealDateMenus"
                href="#/app/playlists/{{playlist.id}}">
-            <span ng-repeat="menu in mealDateMenu.menus">
+            <span ng-repeat="menu in mealDateMenu.menus" ng-click="openMenu(mealDateMenu)">
               {{menu.name}} ({{menu.category}}) <br>
             </span>
           </div>
@@ -32,7 +32,7 @@
           <div> [Take-out] </div>
           <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='takeout'" ng-repeat="mealDateMenu in mealDateMenus"
                href="#/app/playlists/{{playlist.id}}">
-            <span ng-repeat="menu in mealDateMenu.menus">
+            <span ng-repeat="menu in mealDateMenu.menus" ng-click="openMenu(mealDateMenu)">
               {{menu.name}} ({{menu.category}}) <br>
             </span>
           </div>
@@ -41,7 +41,7 @@
           <div> [한식] </div>
           <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='korean'" ng-repeat="mealDateMenu in mealDateMenus"
                href="#/app/playlists/{{playlist.id}}">
-            <span ng-repeat="menu in mealDateMenu.menus">
+            <span ng-repeat="menu in mealDateMenu.menus" ng-click="openMenu(mealDateMenu)">
               {{menu.name}} ({{menu.category}}) <br>
             </span>
           </div>
@@ -54,7 +54,7 @@
           <div ng-show="mealDateMenu.meal.time=='lunch'&&mealDateMenu.meal.category=='korean'"
                ng-repeat="mealDateMenu in mealDateMenus"
                href="#/app/playlists/{{playlist.id}}">
-            <span ng-repeat="menu in mealDateMenu.menus">
+            <span ng-repeat="menu in mealDateMenu.menus" ng-click="openMenu(mealDateMenu)">
               {{menu.name}} ({{menu.category}}) <br>
             </span>
           </div>
@@ -64,7 +64,7 @@
           <div ng-show="mealDateMenu.meal.time=='lunch'&&mealDateMenu.meal.category=='western'"
                ng-repeat="mealDateMenu in mealDateMenus"
                href="#/app/playlists/{{playlist.id}}">
-            <span ng-repeat="menu in mealDateMenu.menus">
+            <span ng-repeat="menu in mealDateMenu.menus" ng-click="openMenu(mealDateMenu)">
               {{menu.name}} ({{menu.category}}) <br>
             </span>
           </div>
@@ -73,7 +73,7 @@
       <div class="item item-divider">저녁(2층)</div>
       <ion-item ng-show="mealDateMenu.meal.time=='dinner'" ng-repeat="mealDateMenu in mealDateMenus"
                 href="#/app/playlists/{{playlist.id}}">
-        <span ng-repeat="menu in mealDateMenu.menus">
+        <span ng-repeat="menu in mealDateMenu.menus" ng-click="openMenu(mealDateMenu)">
           {{menu.name}} ({{menu.category}}) <br>
         </span>
       </ion-item>
