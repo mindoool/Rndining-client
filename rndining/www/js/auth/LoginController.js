@@ -1,4 +1,4 @@
-app.controller('LoginController', ['$scope', '$http', '$rootScope', '$filter', '$ionicModal', '$timeout', 'storage', '$state', function ($scope, $http, $rootScope, $filter, $ionicModal, $timeout, storage, $state) {
+app.controller('LoginController', ['$scope', '$http', '$rootScope', '$filter', '$ionicModal', '$timeout', 'storage', '$state', '$rootScope', function ($scope, $http, $rootScope, $filter, $ionicModal, $timeout, storage, $state, $rootScope) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -45,4 +45,15 @@ app.controller('LoginController', ['$scope', '$http', '$rootScope', '$filter', '
       $scope.closeLogin();
     }, 1000);
   };
+
+  $scope.doLogout = function () {
+    console.log('logout');
+    console.log($rootScope);
+    $rootScope.token = null;
+    $rootScope.user = null;
+    $http.defaults.headers.common.Authorization = null;
+    storage.set('userData', null);
+    storage.set('token', null);
+    $state.go('app.menus');
+  }
 }]);

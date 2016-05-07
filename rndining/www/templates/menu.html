@@ -14,13 +14,11 @@
 
   <ion-side-menu side="left" expose-aside-when="large">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+      <h1 class="title">RnDining</h1>
     </ion-header-bar>
     <ion-content>
+      <div class="item item-divider">회사식단</div>
       <ion-list>
-        <ion-item menu-close ng-controller="LoginController" ng-click="login()">
-          Login
-        </ion-item>
         <ion-item menu-close href="#/app/meal-date-menus">
           주간식단
         </ion-item>
@@ -30,8 +28,17 @@
       </ion-list>
       <div class="item item-divider">Admin</div>
       <ion-list>
-        <ion-item menu-close href="#/app/menus">
+        <ion-item menu-close href="#/app/upload-menus">
           식단등록
+        </ion-item>
+      </ion-list>
+      <div class="item item-divider">유저정보</div>
+      <ion-list>
+        <ion-item ng-show="!$root.token" menu-close ng-controller="LoginController" ng-click="login()">
+          Login
+        </ion-item>
+        <ion-item ng-show="$root.token" menu-close ng-controller="LoginController" ng-click="doLogout()">
+          Logout
         </ion-item>
       </ion-list>
     </ion-content>

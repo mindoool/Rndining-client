@@ -26,20 +26,29 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('app.single', {
-      url: '/playlists/:playlistId',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlist.html',
-          controller: 'PlaylistCtrl'
-        }
-      }
-    })
+    //.state('app.mealdatemenu', {
+    //  url: '/meal-date-menu',
+    //  views: {
+    //    'menuContent': {
+    //      templateUrl: 'templates/meal-date-menu.html',
+    //      controller: 'MealController'
+    //    }
+    //  }
+    //})
     .state('app.mealdatemenus', {
       url: '/meal-date-menus',
       views: {
         'menuContent': {
           templateUrl: 'templates/meal-date-menus.html',
+          controller: 'MealController'
+        }
+      }
+    })
+    .state('app.uploadmenus', {
+      url: '/upload-menus',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/upload-menus.html',
           controller: 'MealController'
         }
       }
@@ -63,14 +72,4 @@ app.run(function ($ionicPlatform, $http, storage, $rootScope) {
   $http.defaults.headers.common.Authorization = storage.get('token');
   $rootScope.token = storage.get('token');
   $rootScope.user = storage.get('userData');
-  $rootScope.logout = function () {
-    console.log('logout');
-    console.log($rootScope);
-    $rootScope.token = null;
-    $rootScope.user = null;
-    $http.defaults.headers.common.Authorization = null;
-    storage.set('userData', null);
-    storage.set('token', null);
-    $state.go('login');
-  }
 });

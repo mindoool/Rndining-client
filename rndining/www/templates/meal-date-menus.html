@@ -12,7 +12,7 @@
           <div> [라면] </div>
           <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='noodle'" ng-repeat="mealDateMenu in mealDateMenus"
                     href="#/app/playlists/{{playlist.id}}">
-            <span ng-repeat="menu in mealDateMenu.menus">
+            <span ng-repeat="menu in mealDateMenu.menus" href="#/app/meal-date-menu" ng-click="openMenu(mealDateMenu)">
               {{menu.name}} ({{menu.category}}) <br>
             </span>
           </div>

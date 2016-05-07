@@ -1,0 +1,15 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">식단 상세</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeMenu()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <span ng-repeat="menu in mealDateMenu.menus" href="#/app/meal-date-menu" ng-click="openMenu(mealDateMenu)">
+        {{menu.name}} ({{menu.category}}) <br>
+      </span>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>
