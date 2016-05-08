@@ -1,6 +1,10 @@
 app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$ionicModal', function ($scope, $http, $rootScope, $filter, $ionicModal) {
   $scope.currentTime = new Date().getTime();
 
+  $scope.categoryDisplayName = {
+    salad: '샐러드'
+  };
+
   $scope.changeDate = function (forward) {
     if (forward) {
       $scope.currentTime += 86400000;
@@ -48,8 +52,30 @@ app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$
   };
 
   // Open the login modal
-  $scope.openMenu = function (mealDateMenu) {
+  $scope.openMenu = function (mealDateMenu, mealDateMenus) {
     $scope.modal.show();
-    $scope.mealDateMenu = mealDateMenu
+    $scope.mealDateMenu = mealDateMenu;
+    $scope.mealDateMenus = mealDateMenus;
+    $scope.morningMealDateMenus = [];
+    $scope.lunchMealDateMenus = [];
+    $scope.dinnerMealDateMenus = [];
+    for (var i = 0; i < $scope.mealDateMenus.length; i++) {
+      if ($scope.mealDateMenus[i].meal.time == 'morning') {
+        $scope.morningMealDateMenus.push($scope.mealDateMenus[i])
+      } else if ($scope.mealDateMenus[i].meal.time == 'lunch') {
+        $scope.lunchMealDateMenus.push($scope.mealDateMenus[i])
+      } else if ($scope.mealDateMenus[i].meal.time == 'dinner') {
+        $scope.dinnerMealDateMenus.push($scope.mealDateMenus[i])
+      }
+    }
+    console.log($scope.morningMealDateMenus);
   };
+  $scope.tabIndex = null;
+  $scope.changeMenu = function(menu, index) {
+    $scope.mealDateMenu = menu;
+    console.log($scope.mealDateMenu);
+    // select tab
+    $scope.tabIndex = index;
+  }
+
 }]);

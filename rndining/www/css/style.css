@@ -8,3 +8,7 @@
 .menu-item {
   padding: 5px;
 }
+
+.tab-active{
+  font-weight: bold;
+}

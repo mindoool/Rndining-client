@@ -13,40 +13,21 @@
     </div>
   </ion-header-bar>
   <div class="tabs" ng-if="mealDateMenu.meal.time=='morning'">
-    <a class="tab-item">
-      한식
-    </a>
-    <a class="tab-item">
-      샐러드
-    </a>
-    <a class="tab-item">
-      라면
-    </a>
-    <a class="tab-item">
-      Take-Out
+    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in morningMealDateMenus"
+       ng-class="{'active' : tabIndex == $index}">
+      {{menu.meal.category}}
     </a>
   </div>
   <div class="tabs" ng-if="mealDateMenu.meal.time=='lunch'">
-    <a class="tab-item">
-      한식
-    </a>
-    <a class="tab-item">
-      양식
+    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in lunchMealDateMenus">
+      {{menu.meal.category}}
     </a>
   </div>
-  <!--<ion-tabs>-->
-    <!--<ion-tab title="Home">-->
-      <!--&lt;!&ndash; Tab 1 content &ndash;&gt;-->
-    <!--</ion-tab>-->
-
-    <!--<ion-tab title="About">-->
-      <!--&lt;!&ndash; Tab 2 content &ndash;&gt;-->
-    <!--</ion-tab>-->
-
-    <!--<ion-tab title="Settings">-->
-      <!--&lt;!&ndash; Tab 3 content &ndash;&gt;-->
-    <!--</ion-tab>-->
-  <!--</ion-tabs>-->
+  <div class="tabs" ng-if="mealDateMenu.meal.time=='dinner'">
+    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in dinnerMealDateMenus">
+      {{menu.meal.category}}
+    </a>
+  </div>
   <ion-content>
     <ion-list>
       <ion-item class="menu-item" ng-repeat="menu in mealDateMenu.menus">
@@ -62,9 +43,17 @@
             <span ng-if="menu.category=='noodle'">면</span>
             <span ng-if="menu.category=='salad'">샐러드</span>
           </div>
-          <div class="col col-20">{{menu.name}}</div>
+          <div class="col col-10"></div>
+          <div class="col col-70">{{menu.name}}</div>
         </div>
       </ion-item>
     </ion-list>
+    <div class="item item-divider">댓글</div>
+    <ion-item class="menu-item" ng-repeat="menu in mealDateMenu.menus">
+      <div class="row">
+        <div class="col col-20">작성자</div>
+        <div class="col col-80">내용</div>
+      </div>
+    </ion-item>
   </ion-content>
 </ion-modal-view>

@@ -31,7 +31,7 @@ app.controller('LoginController', ['$scope', '$http', '$rootScope', '$filter', '
         $http.defaults.headers.common.Authorization = storage.get('token');
         $scope.$root.user = response.data.data;
         if (response.data.data.isAdmin) {
-          $state.go('app.menus');
+          $state.go('app.uploadmenus');
         } else {
           $state.go('app.mealdatemenus');
         }
