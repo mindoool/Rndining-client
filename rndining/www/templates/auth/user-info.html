@@ -1,0 +1,21 @@
+<ion-view view-title="유저정보">
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <div class="row">
+          <div class="col col-20">E-mail</div>
+          <div class="col col-80">{{user.email}}</div>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row">
+          <div class="col col-20">닉네임</div>
+          <div class="col col-80">{{user.nickname}}</div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div class="row">
+      <button class="button button-full button-dark" ng-click="editUser()">수정</button>
+    </div>
+  </ion-content>
+</ion-view>

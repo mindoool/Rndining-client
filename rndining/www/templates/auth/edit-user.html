@@ -1,0 +1,49 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">회원정보 수정</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeEditUser()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doEditUser()">
+      <div class="list">
+        <div> * 필수정보 </div>
+        <label class="item item-input disabled">
+          <span class="input-label">이메일</span>
+          <input type="text" class="disabled" disabled ng-model="user.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">현재 비밀번호</span>
+          <input type="password" ng-model="user.oldPassword">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">새 비밀번호</span>
+          <input type="password" ng-model="user.newPassword">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">새 비밀번호(확인)</span>
+          <input type="password" ng-model="user.newPasswordCheck">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">닉네임</span>
+          <input type="text" ng-model="user.nickname">
+        </label>
+        <div>선택정보</div>
+        <label class="item item-input">
+          <span class="input-label">성별</span>
+          <ion-radio ng-model="user.gender" ng-value="'male'">남자</ion-radio>
+          <ion-radio ng-model="user.gender" ng-value="'female'">여자</ion-radio>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">생년월일</span>
+          <input type="date" ng-model="user.birth">
+        </label>
+        <div class="edit-user-warning" ng-show="user.newPasswordCheck.length>0 && user.newPassword != user.newPasswordCheck">* 새 비밀번호가 일치하지 않습니다.</div>
+        <div class="row">
+          <button class="button button-block button-dark" type="submit">수정</button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

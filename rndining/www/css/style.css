@@ -12,3 +12,12 @@
 .tab-active{
   font-weight: bold;
 }
+
+.disabled {
+  background-color: #f8f8f8;
+}
+
+.edit-user-warning {
+  color: red;
+  margin: 5px;
+}

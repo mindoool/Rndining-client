@@ -52,6 +52,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
           controller: 'MealController'
         }
       }
+    })
+    .state('app.userinfos', {
+      url: '/user-infos',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/auth/user-info.html',
+          controller: 'UserController'
+        }
+      }
     });
 });
 

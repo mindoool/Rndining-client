@@ -12,6 +12,7 @@ app.controller('LoginController', ['$scope', '$http', '$rootScope', '$filter', '
   // Triggered in the login modal to close it
   $scope.closeLogin = function () {
     $scope.modal.hide();
+    $scope.loginData = {};
   };
 
   // Open the login modal
@@ -21,9 +22,9 @@ app.controller('LoginController', ['$scope', '$http', '$rootScope', '$filter', '
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function () {
-    console.log('Doing login', $scope.loginData);
     $http.post(host + '/users/login', $scope.loginData)
       .then(function successCallback(response) {
+        console.log(response);
         storage.set('token', response.data.token);
         storage.set('userData', response.data.data);
         console.log(response.data);
@@ -35,15 +36,16 @@ app.controller('LoginController', ['$scope', '$http', '$rootScope', '$filter', '
         } else {
           $state.go('app.mealdatemenus');
         }
+        $scope.closeLogin();
       }, function errorCallback(response) {
         alert('이메일 주소나 비밀번호가 잘못되었습니다.');
       });
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
-    $timeout(function () {
-      $scope.closeLogin();
-    }, 1000);
+    //$timeout(function () {
+    //  $scope.closeLogin();
+    //}, 1000);
   };
 
   $scope.doLogout = function () {
