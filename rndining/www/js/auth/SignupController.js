@@ -21,7 +21,6 @@ app.controller('SignupController', ['$scope', '$http', '$rootScope', '$filter', 
 
   // Perform the signup action when the user submits the signup form
   $scope.doSignup = function () {
-    console.log('Doing signup', $scope.signupData);
     $http.post(host + '/users', $scope.signupData)
       .then(function (response) {
         console.log(response);

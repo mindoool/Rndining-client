@@ -49,11 +49,39 @@
       </ion-item>
     </ion-list>
     <div class="item item-divider">댓글</div>
-    <ion-item class="menu-item" ng-repeat="menu in mealDateMenu.menus">
+    <ion-item class="menu-item" ng-repeat="comment in mealDateMenu.comments">
       <div class="row">
-        <div class="col col-20">작성자</div>
-        <div class="col col-80">내용</div>
+        <div class="col col-20">{{comment.user.nickname}}</div>
+        <div class="col col-5"></div>
+        <div class="col col-50" ng-show="editStatus==0">{{comment.content}}</div>
+        <div class="col col-50" ng-show="editStatus==1">
+          <form ng-submit="editComment()">
+            <label class="item-input-wrapper">
+              <input type="text" placeholder="댓글 입력" ng-model="comment.content">
+            </label>
+          </form>
+        </div>
+        <div class="col col-5">
+          <span class="icon ion-edit" ng-show="comment.userId == $root.user.id && editStatus==0"
+                ng-click="editStatus=1"></span>
+        </div>
+        <div class="col col-5">
+          <span class="icon ion-close-round" ng-show="comment.userId == $root.user.id && editStatus==0"
+                ng-click="deleteComment(comment)"></span>
+          <button class="button button-small" ng-show="editStatus==1" ng-click="editComment(comment); editStatus=0">
+            등록
+          </button>
+        </div>
+        <div class="col col-5"></div>
       </div>
     </ion-item>
+    <form class="item item-input-inset" ng-submit="doComment()" ng-disabled="loadingComments">
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="댓글 입력" ng-model="commentData.content" ng-disabled="loadingComments">
+      </label>
+      <button class="button button-small" ng-disabled="loadingComments" type="submit">
+        등록
+      </button>
+    </form>
   </ion-content>
 </ion-modal-view>

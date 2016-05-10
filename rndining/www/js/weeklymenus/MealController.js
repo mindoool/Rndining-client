@@ -53,6 +53,7 @@ app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$
 
   // Open the login modal
   $scope.openMenu = function (mealDateMenu, mealDateMenus) {
+    $scope.loadingComments = true;
     $scope.modal.show();
     $scope.mealDateMenu = mealDateMenu;
     $scope.mealDateMenus = mealDateMenus;
@@ -69,13 +70,50 @@ app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$
       }
     }
     console.log($scope.morningMealDateMenus);
+    $scope.loadingComments = false;
   };
   $scope.tabIndex = null;
-  $scope.changeMenu = function(menu, index) {
+  $scope.changeMenu = function (menu, index) {
     $scope.mealDateMenu = menu;
     console.log($scope.mealDateMenu);
     // select tab
     $scope.tabIndex = index;
+  };
+
+  $scope.commentData = {};
+  $scope.doComment = function () {
+    var commentData = {
+      "userId": $scope.mealDateMenu.userId,
+      "content": $scope.commentData.content
+    };
+    $scope.loadingComments = true;
+    $http.post(host + '/meal-dates/' + $scope.mealDateMenu.id + '/comments', commentData)
+      .then(function (response) {
+        console.log(response);
+        $scope.mealDateMenu.comments.push(response.data.data);
+      });
+    $scope.loadingComments = false;
+    $scope.commentData.content = null;
+  };
+  $scope.deleteComment = function (comment) {
+    $http.delete(host + '/meal-dates/' + $scope.mealDateMenu.id + '/comments/' + comment.id)
+      .then(function (response) {
+        var index = $scope.mealDateMenu.comments.indexOf(comment);
+        if (index >= 0) {
+          $scope.mealDateMenu.comments.splice(index, 1);
+        }
+        console.log(response);
+      });
+  };
+  $scope.editStatus = 0;
+  $scope.editComment = function (comment) {
+    var commentData = {
+      "content": comment.content
+    };
+    $http.put(host + '/meal-dates/' + $scope.mealDateMenu.id + '/comments/' + comment.id, commentData)
+      .then(function (response) {
+        console.log(response);
+      })
   }
 
 }]);
