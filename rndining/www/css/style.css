@@ -1,6 +1,7 @@
 /* Empty. Add your own CSS if you like */
 .center {
   margin: auto;
+  margin-top: 5px;
   width: 80%;
   text-align: center;
 }
@@ -9,7 +10,7 @@
   padding: 5px;
 }
 
-.tab-active{
+.tab-active {
   font-weight: bold;
 }
 
@@ -20,4 +21,8 @@
 .edit-user-warning {
   color: red;
   margin: 5px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
