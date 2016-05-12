@@ -26,3 +26,14 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.edit-comment-input {
+  background-color: #eee;
+}
+
+.modal-fullscreen {
+  width: 100% !important;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
+}

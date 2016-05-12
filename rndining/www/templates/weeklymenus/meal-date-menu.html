@@ -1,4 +1,4 @@
-<ion-modal-view>
+<ion-modal-view class="modal-fullscreen">
   <ion-header-bar>
     <h1 class="title">
       <div class="row">
@@ -57,7 +57,7 @@
         <div class="col col-50" ng-show="editStatus==1">
           <form ng-submit="editComment()">
             <label class="item-input-wrapper">
-              <input type="text" placeholder="댓글 입력" ng-model="comment.content">
+              <input type="text" class="edit-comment-input" placeholder="댓글 입력" ng-model="comment.content">
             </label>
           </form>
         </div>
