@@ -1,20 +1,18 @@
 <ion-modal-view class="modal-fullscreen">
   <ion-header-bar>
-    <h1 class="title">
-      <div class="row">
-        <span class="center">{{mealDateMenu.date | date:'yyyy-MM-dd'}}</span>
-        <span class="center" ng-if="mealDateMenu.meal.time=='morning'">아침</span>
-        <span class="center" ng-if="mealDateMenu.meal.time=='lunch'">점심</span>
-        <span class="center" ng-if="mealDateMenu.meal.time=='dinner'">저녁</span>
-      </div>
-    </h1>
+    <div class="title">
+      <span class="center">{{mealDateMenu.date | date:'yyyy-MM-dd'}}</span>
+      <span class="center" ng-if="mealDateMenu.meal.time=='morning'">아침</span>
+      <span class="center" ng-if="mealDateMenu.meal.time=='lunch'">점심</span>
+      <span class="center" ng-if="mealDateMenu.meal.time=='dinner'">저녁</span>
+    </div>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closeMenu()">Close</button>
+      <button class="button button-clear text-white" ng-click="closeMenu()">Close</button>
     </div>
   </ion-header-bar>
   <div class="tabs" ng-if="mealDateMenu.meal.time=='morning'">
     <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in morningMealDateMenus"
-       ng-class="{'active' : tabIndex == $index}">
+       ng-class="{'tab-active' : tabIndex == $index}">
       {{menu.meal.category}}
     </a>
   </div>

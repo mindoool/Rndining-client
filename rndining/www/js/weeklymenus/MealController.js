@@ -55,6 +55,7 @@ app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$
   $scope.openMenu = function (mealDateMenu, mealDateMenus) {
     $scope.loadingComments = true;
     $scope.modal.show();
+
     $scope.mealDateMenu = mealDateMenu;
     $scope.mealDateMenus = mealDateMenus;
     $scope.morningMealDateMenus = [];
