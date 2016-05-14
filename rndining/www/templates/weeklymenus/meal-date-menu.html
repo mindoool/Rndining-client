@@ -17,12 +17,14 @@
     </a>
   </div>
   <div class="tabs" ng-if="mealDateMenu.meal.time=='lunch'">
-    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in lunchMealDateMenus">
+    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in lunchMealDateMenus"
+       ng-class="{'tab-active' : tabIndex == $index}">
       {{menu.meal.category}}
     </a>
   </div>
   <div class="tabs" ng-if="mealDateMenu.meal.time=='dinner'">
-    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in dinnerMealDateMenus">
+    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in dinnerMealDateMenus"
+       ng-class="{'tab-active' : tabIndex == $index}">
       {{menu.meal.category}}
     </a>
   </div>

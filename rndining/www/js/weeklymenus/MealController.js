@@ -72,6 +72,15 @@ app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$
     }
     console.log($scope.morningMealDateMenus);
     $scope.loadingComments = false;
+    var index = $scope.morningMealDateMenus.indexOf(mealDateMenu);
+    if (index==-1) {
+      index = $scope.lunchMealDateMenus.indexOf(mealDateMenu);
+    }
+    if (index==-1) {
+      index = $scope.dinnerMealDateMenus.indexOf(mealDateMenu);
+    }
+    console.log(index);
+    $scope.changeMenu(mealDateMenu, index);
   };
   $scope.tabIndex = null;
   $scope.changeMenu = function (menu, index) {
