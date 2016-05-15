@@ -12,7 +12,8 @@
 
 .tab-active {
   font-weight: bold;
-  color: blue;
+  color: #f3ba07;
+  font-size: 16px;
 }
 
 .disabled {
@@ -41,4 +42,46 @@
 
 .text-white {
   color: white;
+}
+
+.sidebar-divider {
+  background-color: #373946;
+  color: #adadad;
+  font-size: 14px;
+  border: none;
+}
+
+.sidebar-item .item {
+  border: none;
+}
+
+.item-content, .sidebar-item .item-content {
+  background-color: #494c5d;
+  color: white;
+  font-size: 16px;
+}
+
+.sidebar-item .activated.activated.activated {
+  background-color: #494c5d;
+}
+
+.main-color {
+  background-color: #fad04c;
+  color: #3b3b3b;
+}
+
+.header-bar, .header-bar ion-header-bar {
+  background-color: #fad04c;
+}
+
+.header-bar .button.button {
+  color: #3b3b3b;
+}
+
+.header-bar .title {
+  color: #3b3b3b;
+}
+
+.header-bar .center.center {
+  text-align: center;
 }

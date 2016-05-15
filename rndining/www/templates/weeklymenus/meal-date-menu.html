@@ -1,7 +1,8 @@
 <ion-modal-view class="modal-fullscreen">
-  <ion-header-bar>
-    <div class="title">
+  <ion-header-bar class="header-bar">
+    <div class="title center">
       <span class="center">{{mealDateMenu.date | date:'yyyy-MM-dd'}}</span>
+      &nbsp;&nbsp;
       <span class="center" ng-if="mealDateMenu.meal.time=='morning'">아침</span>
       <span class="center" ng-if="mealDateMenu.meal.time=='lunch'">점심</span>
       <span class="center" ng-if="mealDateMenu.meal.time=='dinner'">저녁</span>
@@ -11,24 +12,25 @@
     </div>
   </ion-header-bar>
   <div class="tabs" ng-if="mealDateMenu.meal.time=='morning'">
-    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in morningMealDateMenus"
+    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in mealDateMenusObj.morning"
        ng-class="{'tab-active' : tabIndex == $index}">
       {{menu.meal.category}}
     </a>
   </div>
   <div class="tabs" ng-if="mealDateMenu.meal.time=='lunch'">
-    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in lunchMealDateMenus"
+    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in mealDateMenusObj.lunch"
        ng-class="{'tab-active' : tabIndex == $index}">
       {{menu.meal.category}}
     </a>
   </div>
   <div class="tabs" ng-if="mealDateMenu.meal.time=='dinner'">
-    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in dinnerMealDateMenus"
+    <a class="tab-item" ng-click="changeMenu(menu, $index)" ng-repeat="menu in mealDateMenusObj.dinner"
        ng-class="{'tab-active' : tabIndex == $index}">
       {{menu.meal.category}}
     </a>
   </div>
-  <ion-content>
+  <ion-content class="weekly-menu">
+    <div class="item comment-divider">메뉴</div>
     <ion-list>
       <ion-item class="menu-item" ng-repeat="menu in mealDateMenu.menus">
         <div class="row">
@@ -48,14 +50,15 @@
         </div>
       </ion-item>
     </ion-list>
-    <div class="item item-divider">댓글</div>
+    <br>
+    <div class="item comment-divider">댓글</div>
     <ion-item class="menu-item" ng-repeat="comment in mealDateMenu.comments">
       <div class="row">
         <div class="col col-20">{{comment.user.nickname}}</div>
         <div class="col col-5"></div>
         <div class="col col-50" ng-show="editStatus==0">{{comment.content}}</div>
         <div class="col col-50" ng-show="editStatus==1">
-          <form ng-submit="editComment()">
+          <form ng-submit="editComment(comment); editStatus=0">
             <label class="item-input-wrapper">
               <input type="text" class="edit-comment-input" placeholder="댓글 입력" ng-model="comment.content">
             </label>

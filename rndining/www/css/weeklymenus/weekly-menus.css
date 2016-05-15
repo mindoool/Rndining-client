@@ -1,0 +1,18 @@
+.weekly-menu .item-divider {
+  /*background-color: #fdf1c8;*/
+  background-color: #f5f5f5;
+  margin: 0px 5px 0px 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.weekly-menu-item {
+  color: #3b3b3b;
+}
+
+.weekly-menu .comment-divider {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}

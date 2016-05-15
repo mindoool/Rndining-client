@@ -58,27 +58,22 @@ app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$
 
     $scope.mealDateMenu = mealDateMenu;
     $scope.mealDateMenus = mealDateMenus;
-    $scope.morningMealDateMenus = [];
-    $scope.lunchMealDateMenus = [];
-    $scope.dinnerMealDateMenus = [];
+    $scope.mealDateMenusObj = {
+      morning: [],
+      lunch: [],
+      dinner: []
+    };
     for (var i = 0; i < $scope.mealDateMenus.length; i++) {
       if ($scope.mealDateMenus[i].meal.time == 'morning') {
-        $scope.morningMealDateMenus.push($scope.mealDateMenus[i])
+        $scope.mealDateMenusObj.morning.push($scope.mealDateMenus[i])
       } else if ($scope.mealDateMenus[i].meal.time == 'lunch') {
-        $scope.lunchMealDateMenus.push($scope.mealDateMenus[i])
+        $scope.mealDateMenusObj.lunch.push($scope.mealDateMenus[i])
       } else if ($scope.mealDateMenus[i].meal.time == 'dinner') {
-        $scope.dinnerMealDateMenus.push($scope.mealDateMenus[i])
+        $scope.mealDateMenusObj.dinner.push($scope.mealDateMenus[i])
       }
     }
-    console.log($scope.morningMealDateMenus);
     $scope.loadingComments = false;
-    var index = $scope.morningMealDateMenus.indexOf(mealDateMenu);
-    if (index==-1) {
-      index = $scope.lunchMealDateMenus.indexOf(mealDateMenu);
-    }
-    if (index==-1) {
-      index = $scope.dinnerMealDateMenus.indexOf(mealDateMenu);
-    }
+    var index = $scope.mealDateMenusObj[$scope.mealDateMenu.meal.time].indexOf(mealDateMenu);
     console.log(index);
     $scope.changeMenu(mealDateMenu, index);
   };
@@ -124,6 +119,16 @@ app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$
       .then(function (response) {
         console.log(response);
       })
+  }
+
+  $scope.showStatus = {
+    morning: true,
+    lunch: true,
+    dinner: true
+  };
+  $scope.changeShowStatus = function(key, boolean) {
+    $scope.showStatus[key] = !boolean;
+    console.log($scope.showStatus);
   }
 
 }]);
