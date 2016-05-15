@@ -13,7 +13,7 @@
         <div class="col col-80">아침</div>
         <span class="icon ion-chevron-up center col col-20 cursor-pointer" ng-show="showStatus.morning"
               ng-click="changeShowStatus('morning', showStatus.morning)"></span>
-        <span class="icon ion-chevron-down center col col-20 cursor-pointer" ng-show!="showStatus.morning"
+        <span class="icon ion-chevron-down center col col-20 cursor-pointer" ng-show="!showStatus.morning"
               ng-click="changeShowStatus('morning', showStatus.morning)"></span>
       </h3>
       <div class="row" ng-show="showStatus.morning">
@@ -60,7 +60,7 @@
         <div class="col col-80">점심</div>
         <span class="icon ion-chevron-up center col col-20 cursor-pointer" ng-show="showStatus.lunch"
               ng-click="changeShowStatus('lunch', showStatus.lunch)"></span>
-        <span class="icon ion-chevron-down center col col-20 cursor-pointer" ng-show!="showStatus.lunch"
+        <span class="icon ion-chevron-down center col col-20 cursor-pointer" ng-show="!showStatus.lunch"
               ng-click="changeShowStatus('lunch', showStatus.lunch)"></span>
       </h3>
       <div class="row" ng-show="showStatus.lunch">
@@ -87,7 +87,7 @@
         <div class="col col-80">저녁 (2층)</div>
         <span class="icon ion-chevron-up center col col-20 cursor-pointer" ng-show="showStatus.dinner"
               ng-click="changeShowStatus('dinner', showStatus.dinner)"></span>
-        <span class="icon ion-chevron-down center col col-20 cursor-pointer" ng-show!="showStatus.dinner"
+        <span class="icon ion-chevron-down center col col-20 cursor-pointer" ng-show="!showStatus.dinner"
               ng-click="changeShowStatus('dinner', showStatus.dinner)"></span>
       </h3>
       <div class="row" ng-show="showStatus.dinner">
