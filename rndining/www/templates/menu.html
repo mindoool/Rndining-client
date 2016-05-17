@@ -37,7 +37,7 @@
         <ion-item ng-show="$root.token" menu-close href="#/app/user-infos">
           유저정보
         </ion-item>
-        <ion-item ng-show="!$root.token" menu-close ng-controller="LoginController" ng-click="login()">
+        <ion-item class="item-content" ng-show="!$root.token" menu-close ng-controller="LoginController" ng-click="login()">
           Login
         </ion-item>
         <ion-item class="item-content" ng-show="$root.token" menu-close ng-controller="LoginController" ng-click="doLogout()">
