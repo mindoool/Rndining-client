@@ -4,6 +4,32 @@ app.directive('fileReader', function () {
       fileReader: "="
     },
     link: function (scope, element) {
+      // 1. 레겍스로 깔끔한 값 추출, 2.
+      var f = function (cell) {
+        var expText = /[가-힣& ]+|(\d+\/\d+)+/g;
+        var cellDic = {};
+        var cellNo = Number(z.slice(1, 3));
+        var cellStr = z.slice(0, 1);
+        var oldString = expText.exec(worksheet[z].v);
+        var newString = oldString[0].replace(/ /g, '');
+        if (newString !== '') {
+          console.log("aa")
+        }
+
+        // 요일...
+        var cellStrNum = cellStr.charCodeAt(0);
+        var div = Math.floor(cellStrNum / 4);
+        var days = ['mon', 'tue', 'wed', 'thu', 'fri'];
+        cellDic['day'] = days[div-17];
+        console.log(cellNo);
+        console.log(cellStr);
+        console.log(cellStrNum);
+
+        var timeSet = new Set();
+        var categorySet = new Set();
+
+      };
+
       $(element).on('change', function (changeEvent) {
         var files = changeEvent.target.files;
         var i, f;
@@ -28,6 +54,8 @@ app.directive('fileReader', function () {
                 /* all keys that do not begin with "!" correspond to cell addresses */
                 if (z[0] === '!') continue;
                 console.log(y + "!" + z + "=" + JSON.stringify(worksheet[z].v));
+
+                // 함수를 호출해서 어디에 할당되는 놈인지 확인해야함
                 do {
                   var oldString = expText.exec(worksheet[z].v);
                   if (oldString) {
@@ -68,43 +96,43 @@ app.directive('fileReader', function () {
                         //newObj['dinner']['sidedish'] = [];
                         menuArray.push(newObj);
                       } else if (['D', 'E', 'F'].indexOf(cellStr) >= 0) {
-                        if ([5,6,7,8,9,10,11,12,17,18,19].indexOf(cellNo) >= 0) {
+                        if ([5, 6, 7, 8, 9, 10, 11, 12, 17, 18, 19].indexOf(cellNo) >= 0) {
                           menuArray[0]['morning'].push(newString);
-                        } else if ([25,26,27,28,29,30,35,36,37,38,39].indexOf(cellNo) >= 0) {
+                        } else if ([25, 26, 27, 28, 29, 30, 35, 36, 37, 38, 39].indexOf(cellNo) >= 0) {
                           menuArray[0]['lunch'].push(newString);
-                        } else if ([47,48,49,50,51,52,53].indexOf(cellNo) >= 0) {
+                        } else if ([47, 48, 49, 50, 51, 52, 53].indexOf(cellNo) >= 0) {
                           menuArray[0]['dinner'].push(newString);
                         }
                       } else if (['H', 'I', 'J'].indexOf(cellStr) >= 0) {
-                        if ([5,6,7,8,9,10,11,12,17,18,19].indexOf(cellNo) >= 0) {
+                        if ([5, 6, 7, 8, 9, 10, 11, 12, 17, 18, 19].indexOf(cellNo) >= 0) {
                           menuArray[1]['morning'].push(newString);
-                        } else if ([25,26,27,28,29,30,35,36,37,38,39].indexOf(cellNo) >= 0) {
+                        } else if ([25, 26, 27, 28, 29, 30, 35, 36, 37, 38, 39].indexOf(cellNo) >= 0) {
                           menuArray[1]['lunch'].push(newString);
-                        } else if ([47,48,49,50,51,52,53].indexOf(cellNo) >= 0) {
+                        } else if ([47, 48, 49, 50, 51, 52, 53].indexOf(cellNo) >= 0) {
                           menuArray[1]['dinner'].push(newString);
                         }
                       } else if (['L', 'M', 'N'].indexOf(cellStr) >= 0) {
-                        if ([5,6,7,8,9,10,11,12,17,18,19].indexOf(cellNo) >= 0) {
+                        if ([5, 6, 7, 8, 9, 10, 11, 12, 17, 18, 19].indexOf(cellNo) >= 0) {
                           menuArray[2]['morning'].push(newString);
-                        } else if ([25,26,27,28,29,30,35,36,37,38,39].indexOf(cellNo) >= 0) {
+                        } else if ([25, 26, 27, 28, 29, 30, 35, 36, 37, 38, 39].indexOf(cellNo) >= 0) {
                           menuArray[2]['lunch'].push(newString);
-                        } else if ([47,48,49,50,51,52,53].indexOf(cellNo) >= 0) {
+                        } else if ([47, 48, 49, 50, 51, 52, 53].indexOf(cellNo) >= 0) {
                           menuArray[2]['dinner'].push(newString);
                         }
                       } else if (['P', 'Q', 'R'].indexOf(cellStr) >= 0) {
-                        if ([5,6,7,8,9,10,11,12,17,18,19].indexOf(cellNo) >= 0) {
+                        if ([5, 6, 7, 8, 9, 10, 11, 12, 17, 18, 19].indexOf(cellNo) >= 0) {
                           menuArray[3]['morning'].push(newString);
-                        } else if ([25,26,27,28,29,30,35,36,37,38,39].indexOf(cellNo) >= 0) {
+                        } else if ([25, 26, 27, 28, 29, 30, 35, 36, 37, 38, 39].indexOf(cellNo) >= 0) {
                           menuArray[3]['lunch'].push(newString);
-                        } else if ([47,48,49,50,51,52,53].indexOf(cellNo) >= 0) {
+                        } else if ([47, 48, 49, 50, 51, 52, 53].indexOf(cellNo) >= 0) {
                           menuArray[3]['dinner'].push(newString);
                         }
                       } else if (['T', 'U', 'V'].indexOf(cellStr) >= 0) {
-                        if ([5,6,7,8,9,10,11,12,17,18,19].indexOf(cellNo) >= 0) {
+                        if ([5, 6, 7, 8, 9, 10, 11, 12, 17, 18, 19].indexOf(cellNo) >= 0) {
                           menuArray[4]['morning'].push(newString);
-                        } else if ([25,26,27,28,29,30,35,36,37,38,39].indexOf(cellNo) >= 0) {
+                        } else if ([25, 26, 27, 28, 29, 30, 35, 36, 37, 38, 39].indexOf(cellNo) >= 0) {
                           menuArray[4]['lunch'].push(newString);
-                        } else if ([47,48,49,50,51,52,53].indexOf(cellNo) >= 0) {
+                        } else if ([47, 48, 49, 50, 51, 52, 53].indexOf(cellNo) >= 0) {
                           menuArray[4]['dinner'].push(newString);
                         }
                       }
