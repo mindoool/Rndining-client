@@ -13,6 +13,10 @@ app.directive('fileReader', function () {
         var oldString = expText.exec(worksheet[z].v);
         var newString = oldString[0].replace(/ /g, '');
         if (newString !== '') {
+          if (cellNo == 3) {
+            console.log("bb");
+            cellDic['date'] = newString;
+          }
           console.log("aa")
         }
 
