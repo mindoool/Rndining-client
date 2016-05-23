@@ -7,17 +7,39 @@ app.directive('fileReader', function () {
       // 1. 레겍스로 깔끔한 값 추출, 2.
       var f = function (cell) {
         var expText = /[가-힣& ]+|(\d+\/\d+)+/g;
+        //리턴 딕셔너리, {'date': , 'time': , 'category': }
         var cellDic = {};
+        //셀 정보
         var cellNo = Number(z.slice(1, 3));
         var cellStr = z.slice(0, 1);
+        //아점저 구분하기 위한 것
+        var morningSet = new Set([5,6,7,8,9,10,11,12,17,18,19]);
+        var lunchSet = new Set([25,26,27,28,29,30,35,36,37,38,39,43]);
+        var dinnserSet = new Set([47,48,49,50,51,52,53]);
+        //셀 값 레겍스 처리
         var oldString = expText.exec(worksheet[z].v);
         var newString = oldString[0].replace(/ /g, '');
         if (newString !== '') {
+          //3행에 있을 때는 date키 값으로 리턴, 아닌 경우에는 아점저 구분
           if (cellNo == 3) {
-            console.log("bb");
+            console.log("date");
             cellDic['date'] = newString;
+          } else if(morningSet.has(cellNo)) {
+            console.log('morning');
+            cellDic['time'] = 'morning'
+          } else if(lunchSet.has(cellNo)) {
+            console.log('lunch');
+            cellDic['time'] = 'lunch'
+          } else if(dinnerSet.has(cellNo)) {
+            console.log('dinner');
+            cellDic['time'] = 'dinner'
           }
-          console.log("aa")
+
+          // 어느 날짜에 속하는지 처리하기
+          var cellStrNum = cellStr.charCodeAt(0);
+          var div = Math.floor(cellStrNum / 4);
+          var days = ['mon', 'tue', 'wed', 'thu', 'fri'];
+          cellDic['day'] = days[div-17];
         }
 
         // 요일...
