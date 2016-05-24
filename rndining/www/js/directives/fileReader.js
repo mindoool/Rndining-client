@@ -12,6 +12,12 @@ app.directive('fileReader', function () {
         //셀 정보
         var cellNo = Number(z.slice(1, 3));
         var cellStr = z.slice(0, 1);
+        //날짜 구분하기 위한 set
+        var monSet = new Set(['D', 'E', 'F']);
+        var tueSet = new Set(['H', 'I', 'J']);
+        var wedSet = new Set(['L', 'M', 'N']);
+        var thuSet = new Set(['P', 'Q', 'R']);
+        var firSet = new Set(['T', 'U', 'V']);
         //아점저 구분하기 위한 것
         var morningSet = new Set([5,6,7,8,9,10,11,12,17,18,19]);
         var lunchSet = new Set([25,26,27,28,29,30,35,36,37,38,39,43]);
@@ -22,8 +28,18 @@ app.directive('fileReader', function () {
         if (newString !== '') {
           //3행에 있을 때는 date키 값으로 리턴, 아닌 경우에는 아점저 구분
           if (cellNo == 3) {
+            if (monSet.has(cellStr)) {
+              cellDic['date'] = cellStr
+            } else if (tueSet.has(cellStr)) {
+              cellDic['date'] = cellStr
+            } else if (wedSet.has(cellStr)) {
+              cellDic['date'] = cellStr
+            } else if (thuSet.has(cellStr)) {
+              cellDic['date'] = cellStr
+            } else if (friSet.has(cellStr)) {
+              cellDic['date'] = cellStr
+            }
             console.log("date");
-            cellDic['date'] = newString;
           } else if(morningSet.has(cellNo)) {
             console.log('morning');
             cellDic['time'] = 'morning'
