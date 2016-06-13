@@ -53,6 +53,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.restaurants', {
+      url: '/restaurants',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/restaurants/restaurants.html',
+          controller: 'RestaurantController'
+        }
+      }
+    })
+    .state('app.favoriterestaurants', {
+      url: '/favorite-restaurants',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/restaurants/favorite-restaurants.html',
+          controller: 'RestaurantController'
+        }
+      }
+    })
     .state('app.userinfos', {
       url: '/user-infos',
       views: {
