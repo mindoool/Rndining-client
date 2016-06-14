@@ -28,10 +28,10 @@
       </ion-list>
       <div class="item item-divider sidebar-divider">주변식당</div>
       <ion-list class="sidebar-item">
-        <ion-item menu-close href="#/app/restaurants">
+        <ion-item menu-close href="#/app/stores">
           식당찾기
         </ion-item>
-        <ion-item menu-close href="#/app/favorite-restaurants">
+        <ion-item menu-close href="#/app/favorite-stores">
           즐겨찾기
         </ion-item>
       </ion-list>
@@ -39,6 +39,9 @@
       <ion-list ng-show="$root.user.isAdmin == 1" class="sidebar-item">
         <ion-item menu-close href="#/app/upload-menus">
           식단등록
+        </ion-item>
+        <ion-item menu-close href="#/app/upload-stores">
+          가게등록
         </ion-item>
       </ion-list>
       <div class="item item-divider sidebar-divider">유저정보</div>

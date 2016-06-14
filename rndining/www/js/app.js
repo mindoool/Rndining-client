@@ -44,6 +44,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.stores', {
+      url: '/stores',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/stores/stores.html',
+          controller: 'StoreController'
+        }
+      }
+    })
+    .state('app.favoritestores', {
+      url: '/favorite-stores',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/stores/favorite-stores.html',
+          controller: 'StoreController'
+        }
+      }
+    })
     .state('app.uploadmenus', {
       url: '/upload-menus',
       views: {
@@ -53,21 +71,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('app.restaurants', {
-      url: '/restaurants',
+    .state('app.uploadstores', {
+      url: '/upload-stores',
       views: {
         'menuContent': {
-          templateUrl: 'templates/restaurants/restaurants.html',
-          controller: 'RestaurantController'
-        }
-      }
-    })
-    .state('app.favoriterestaurants', {
-      url: '/favorite-restaurants',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/restaurants/favorite-restaurants.html',
-          controller: 'RestaurantController'
+          templateUrl: 'templates/admin/upload-stores.html',
+          controller: 'AdminController'
         }
       }
     })

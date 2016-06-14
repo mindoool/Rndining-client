@@ -1,0 +1,44 @@
+<ion-view view-title="주간식단" class="weekly-menu">
+  <ion-content>
+    <div class="row">
+      <div class="col col-50 center cursor-pointer">
+        <h5> 한식 </h5>
+        <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='noodle'"
+             ng-repeat="mealDateMenu in mealDateMenus" ng-click="openMenu(mealDateMenu, mealDateMenus)">
+            <span ng-repeat="menu in mealDateMenu.menus" class="weekly-menu-item">
+              {{menu.name}}<br>
+            </span>
+        </div>
+      </div>
+      <div class="col col-50 center cursor-pointer">
+        <h5> 중식 </h5>
+        <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='salad'"
+             ng-repeat="mealDateMenu in mealDateMenus" ng-click="openMenu(mealDateMenu, mealDateMenus)">
+            <span ng-repeat="menu in mealDateMenu.menus" class="weekly-menu-item">
+              {{menu.name}} ({{menu.category}}) <br>
+            </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-50 center cursor-pointer">
+        <h5> 면류 </h5>
+        <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='takeout'"
+             ng-repeat="mealDateMenu in mealDateMenus" ng-click="openMenu(mealDateMenu, mealDateMenus)">
+            <span ng-repeat="menu in mealDateMenu.menus" class="weekly-menu-item">
+              {{menu.name}} ({{menu.category}}) <br>
+            </span>
+        </div>
+      </div>
+      <div class="col col-50 center cursor-pointer">
+        <h5> 기타 </h5>
+        <div ng-show="mealDateMenu.meal.time=='morning'&&mealDateMenu.meal.category=='korean'"
+             ng-repeat="mealDateMenu in mealDateMenus" ng-click="openMenu(mealDateMenu, mealDateMenus)">
+            <span ng-repeat="menu in mealDateMenu.menus" class="weekly-menu-item">
+              {{menu.name}} ({{menu.category}}) <br>
+            </span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

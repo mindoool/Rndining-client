@@ -26,19 +26,6 @@ app.controller('MealController', ['$scope', '$http', '$rootScope', '$filter', '$
   };
   $scope.getMealDateMenuLists();
 
-  $scope.fileContent = null;
-  $scope.uploadMenus = function () {
-    var content = {
-      content: $scope.fileContent
-    };
-    console.log($scope.fileContent);
-    $http.post(host + '/problems', content)
-      .then(function (response) {
-        $scope.hide();
-        console.log(response)
-      })
-  };
-
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/weeklymenus/meal-date-menu.html', {
     scope: $scope

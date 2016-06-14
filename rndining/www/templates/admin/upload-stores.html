@@ -1,0 +1,47 @@
+<ion-view view-title="주변식당 등록">
+  <ion-content>
+    <form ng-submit="uploadStores()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">가게명</span>
+          <input type="text" ng-model="stores.name">
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            업종구분
+          </div>
+          <select ng-modle="stores.category">
+            <option selected>찌개류</option>
+            <option>한식</option>
+            <option>양식</option>
+            <option>중식</option>
+            <option>돼지고기</option>
+            <option>소고기</option>
+            <option>면류</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">메뉴</span>
+          <div class="col">
+            <div class="row">
+              <input type="text" placeholder="메뉴명" class="center" ng-model="menuObj.name">
+              <input type="text" placeholder="가격" class="center" ng-model="menuObj.price">
+            </div>
+            <div class="row">
+              <div class="center">
+                <button class="button button-energized">+ 추가</button>
+              </div>
+            </div>
+          </div>
+        </label>
+      </div>
+    </form>
+    <div>
+      <ion-list>
+        <ion-item ng-repeat="content in fileContent track by $index">
+          {{content}}
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-view>
