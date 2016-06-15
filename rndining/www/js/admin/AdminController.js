@@ -14,13 +14,24 @@ app.controller('AdminController', ['$scope', '$http', '$rootScope', '$filter', '
 
   //가게 등록을 위한 과정
   $scope.stores = {
-    "name":null,
-    "category":null,
-    "menus": []
+    "name": null,
+    "category": null,
+    "menuObj": []
   };
-  $scope.menuObj = {
-    "name":null,
-    "price":null
+
+  if (!$scope.stores.menuObj || $scope.stores.menuObj.length === 0) {
+    $scope.stores.menuObj = [{
+      name: null,
+      price: null
+    }];
+  }
+
+  $scope.addMenu = function () {
+    $scope.stores.menuObj.push({
+      name: null,
+      price: null
+    });
+    console.log($scope.stores.menuObj);
   };
 
   $scope.uploadStores = function () {

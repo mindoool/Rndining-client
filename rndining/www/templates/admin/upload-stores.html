@@ -23,14 +23,12 @@
         <label class="item item-input">
           <span class="input-label">메뉴</span>
           <div class="col">
-            <div class="row">
-              <input type="text" placeholder="메뉴명" class="center" ng-model="menuObj.name">
-              <input type="text" placeholder="가격" class="center" ng-model="menuObj.price">
+            <div class="row" ng-repeat="menu in stores.menuObj">
+              <input type="text" ng-model="menu.name" placeholder="메뉴명" class="center">
+              <input type="text" ng-model="menu.price" placeholder="가격" class="center">
             </div>
-            <div class="row">
-              <div class="center">
-                <button class="button button-energized">+ 추가</button>
-              </div>
+            <div class="row center">
+              <button class="button button-energized" ng-click="addMenu()">+ 추가</button>
             </div>
           </div>
         </label>
