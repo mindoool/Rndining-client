@@ -46,8 +46,4 @@ app.controller('AdminController', ['$scope', '$http', '$rootScope', '$filter', '
       })
   };
 
-  $scope.addMenus = function () {
-
-  };
-
 }]);

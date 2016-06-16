@@ -67,7 +67,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       views: {
         'menuContent': {
           templateUrl: 'templates/admin/upload-menus.html',
-          controller: 'MealController'
+          controller: 'AdminController'
         }
       }
     })

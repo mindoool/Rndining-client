@@ -20,7 +20,7 @@
             <option>면류</option>
           </select>
         </label>
-        <label class="item item-input">
+        <div class="item item-input">
           <span class="input-label">메뉴</span>
           <div class="col">
             <div class="row" ng-repeat="menu in stores.menuObj">
@@ -28,10 +28,10 @@
               <input type="text" ng-model="menu.price" placeholder="가격" class="center">
             </div>
             <div class="row center">
-              <button class="button button-energized" ng-click="addMenu()">+ 추가</button>
+              <button type="button" class="button button-energized" ng-click="addMenu()">+ 추가</button>
             </div>
           </div>
-        </label>
+        </div>
       </div>
     </form>
     <div>
