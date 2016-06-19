@@ -1,3 +1,3 @@
-app.controller('RestaurantsController', ['$scope', function($scope){
-    $scope.restaurants = [];
+app.controller('StoresController', ['$scope', function($scope){
+    $scope.stores = [];
 }]);

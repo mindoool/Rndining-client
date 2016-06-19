@@ -12,10 +12,10 @@ app.config(function($stateProvider, $urlRouterProvider){
             templateUrl: 'templates/weekly-menu.html',
             controller: 'WeeklymenuController'
         })
-        .state('restaurants', {
-            url: '/restaurants',
-            templateUrl: 'templates/restaurants.html',
-            controller: 'RestaurantsController'
+        .state('stores', {
+            url: '/stores',
+            templateUrl: 'templates/stores.html',
+            controller: 'StoresController'
         })
     $urlRouterProvider.otherwise('/');
 });
