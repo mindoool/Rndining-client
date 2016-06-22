@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="81e90286-e153-434d-8bbc-2aaf90ea6d46" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rndining/www/js/directives/fileReader.js" afterPath="$PROJECT_DIR$/rndining/www/js/directives/fileReader.js" />
     </list>
     <ignored path="RnDining.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -103,8 +102,8 @@
           <file leaf-file-name="fileReader.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/rndining/www/js/directives/fileReader.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.87989557">
-                  <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+                <state vertical-scroll-proportion="0.4308094">
+                  <caret line="73" column="46" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
                   <folding />
                 </state>
               </provider>
@@ -1136,8 +1135,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rndining/www/js/directives/fileReader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87989557">
-          <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.4308094">
+          <caret line="73" column="46" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
           <folding />
         </state>
       </provider>

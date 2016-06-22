@@ -83,7 +83,7 @@ app.directive('fileReader', function () {
       };
 
       var obj = {};
-      var val = 'ffff';
+      var val = 'check';
       //
       var keys = keyMap['D5'];
       var o = obj;
