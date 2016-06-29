@@ -5,8 +5,8 @@
     </div>
     <div>
       <ion-list>
-        <ion-item ng-repeat="content in fileContent track by $index">
-          {{content}}
+        <ion-item ng-repeat="(key, value) in fileContent track by $index">
+          {{key}} : {{value}}
         </ion-item>
       </ion-list>
     </div>
