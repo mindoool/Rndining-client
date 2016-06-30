@@ -5,8 +5,23 @@
     </div>
     <div>
       <ion-list>
-        <ion-item ng-repeat="(key, value) in fileContent track by $index">
-          {{key}} : {{value}}
+        <ion-item ng-repeat="(key1, value1) in fileContent track by $index">
+          {{key1}}
+          <div ng-repeat="(key2, value2) in value1 track by $index">
+            {{key2}}
+            <div ng-repeat="(key3, value3) in value2 track by $index">
+              <div ng-if="isObject(value3) == 1">
+                {{key3}}
+                <div ng-repeat="(key4, value4) in value3 track by $index">
+                  {{key4}} : {{value4}}
+                </div>
+              </div>
+              <div ng-if="isObject(value3) == 0">
+                {{key3}} : {{value3}}
+              </div>
+
+            </div>
+          </div>
         </ion-item>
       </ion-list>
     </div>

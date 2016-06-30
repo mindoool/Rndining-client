@@ -12,6 +12,14 @@ app.controller('AdminController', ['$scope', '$http', '$rootScope', '$filter', '
       })
   };
 
+  $scope.isObject = function(value) {
+    if(typeof value == 'object') {
+      return true
+    } else {
+      return false
+    }
+  };
+
   //가게 등록을 위한 과정
   $scope.stores = {
     "name": null,
