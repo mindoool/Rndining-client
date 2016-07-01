@@ -13,7 +13,15 @@
               <div ng-if="isObject(value3) == 1">
                 {{key3}}
                 <div ng-repeat="(key4, value4) in value3 track by $index">
-                  {{key4}} : {{value4}}
+                  {{key4}}
+                  <div ng-if="isObject(value4) == 1">
+                    <div ng-repeat="v in value4">
+                      {{v}}
+                    </div>
+                  </div>
+                  <div ng-if="isObject(value4 == 0)">
+                    {{value4}}
+                  </div>
                 </div>
               </div>
               <div ng-if="isObject(value3) == 0">
