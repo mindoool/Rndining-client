@@ -8,25 +8,54 @@
         <ion-item ng-repeat="(key1, value1) in fileContent track by $index">
           Date : {{key1}}
           <div ng-repeat="(key2, value2) in value1 track by $index">
-            {{key2}}
+            <span ng-if="key2 == 'morningKoreanObj'">
+              [아침 한식]
+            </span>
+            <span ng-if="key2 == 'morningSaladObj'">
+              [아침 샐러드]
+            </span>
+            <span ng-if="key2 == 'morningNoodleObj'">
+              [아침 라면]
+            </span>
+            <span ng-if="key2 == 'morningTakeoutObj'">
+              [아침 간이식]
+            </span>
+            <span ng-if="key2 == 'lunchKoreanObj'">
+              [점심 한식]
+            </span>
+            <span ng-if="key2 == 'lunchWesternObj'">
+              [점심 양식]
+            </span>
+            <span ng-if="key2 == 'dinnerKoreanObj'">
+              [저녁 한식]
+            </span>
+            <span ng-if="key2 == 'dinnerNoodleObj'">
+              [저녁 면류]
+            </span>
             <div ng-repeat="(key3, value3) in value2 track by $index">
               <div ng-if="isObject(value3) == 1">
-                {{key3}}
                 <div ng-repeat="(key4, value4) in value3 track by $index">
-                  {{key4}}
                   <div ng-if="isObject(value4) == 1">
-                    <div ng-repeat="v in value4">
-                      {{v}}
+                    <span ng-if="key4 == 'rice' || key4 == 'dressing'">
+                      {{key4}} :
+                      <span ng-repeat="v in value4">
+                        {{v}}
+                      </span>
+                    </span>
+                    <div ng-if="!(key4 == 'rice' || key4 == 'dressing')">
+                      <div ng-repeat="v in value4">
+                        {{key4}} : {{v}}
+                      </div>
                     </div>
                   </div>
                   <div ng-if="isObject(value4 == 0)">
-                    {{value4}}
+                    {{key4}} : {{value4}}
                   </div>
                 </div>
               </div>
-              <div ng-if="isObject(value3) == 0">
-                {{key3}} : {{value3}}
-              </div>
+              <!--<div ng-if="isObject(value3) == 0">-->
+              <!--{{key3}} : {{value3}}-->
+              <!--</div>-->
 
             </div>
           </div>
