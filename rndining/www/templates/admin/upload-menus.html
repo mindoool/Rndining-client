@@ -36,13 +36,13 @@
               <div ng-if="isObject(value3) == 1">
                 <div ng-repeat="(key4, value4) in value3 track by $index">
                   <div ng-if="isObject(value4) == 1">
-                    <span ng-if="key4 == 'rice' || key4 == 'dressing'">
+                    <span ng-if="key4 == 'rice' || key4 == 'dressing' || key4 == 'drink'">
                       {{key4}} :
                       <span ng-repeat="v in value4">
                         {{v}}
                       </span>
                     </span>
-                    <div ng-if="!(key4 == 'rice' || key4 == 'dressing')">
+                    <div ng-if="!(key4 == 'rice' || key4 == 'dressing' || key4 == 'drink')">
                       <div ng-repeat="v in value4">
                         {{key4}} : {{v}}
                       </div>
